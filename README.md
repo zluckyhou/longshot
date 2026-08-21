@@ -180,11 +180,17 @@ policy in [English](PRIVACY.md) or [简体中文](PRIVACY.zh-CN.md).
 
 ## Star history
 
-The chart is generated inside this repository by a scheduled GitHub Action. It
-uses the repository-scoped `GITHUB_TOKEN`; no personal access token or star data
-is sent to a third-party chart service.
+The chart is generated inside this repository by
+[Star History Action](https://github.com/narayann7/star-history-action). It uses
+the repository-scoped `GITHUB_TOKEN`; no personal access token or star data is
+sent to a third-party chart service.
 
-![GitHub star history for zluckyhou/longshot](docs/star-history.svg)
+<!-- star-history:start -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/star-history/star-history-dark.svg">
+  <img alt="Star history" src="docs/star-history/star-history-light.svg">
+</picture>
+<!-- star-history:end -->
 
 ## License
 
