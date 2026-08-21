@@ -63,4 +63,4 @@ extension's release notes as well.
 ## Contact
 
 Questions about this policy: please open an issue at
-<https://github.com/zluckyhou/longshot-privacy/issues>.
+<https://github.com/zluckyhou/longshot/issues>.

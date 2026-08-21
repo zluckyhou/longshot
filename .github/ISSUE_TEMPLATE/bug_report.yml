@@ -1,0 +1,27 @@
+name: Bug report
+description: Something is broken, or a page captures badly
+labels: [bug]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: The page you were capturing. This is usually the whole diagnosis — paste it if you can share it.
+      placeholder: https://example.com/some/long/page
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead. A screenshot of the result helps.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Longshot version
+      placeholder: "0.2.0"
+  - type: input
+    id: chrome
+    attributes:
+      label: Chrome version and OS
+      placeholder: "Chrome 140, macOS 15"

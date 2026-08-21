@@ -53,4 +53,4 @@ Longshot 是通用工具类扩展，不向任何人（包括未成年人）收�
 ## 联系方式
 
 对本政策有疑问，请提交 issue：
-<https://github.com/zluckyhou/longshot-privacy/issues>。
+<https://github.com/zluckyhou/longshot/issues>。
