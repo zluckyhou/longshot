@@ -1,7 +1,21 @@
+<div align="center">
+
+<img src="icons/mark512.png" width="88" alt="Longshot icon">
+
 # Longshot
 
-Full-page scrolling screenshot for Chrome. One click, then crop, annotate and copy
-it — nothing leaves the machine.
+**One click, the whole page.** Capture a full-page scrolling screenshot in Chrome,
+then crop, annotate, mask, magnify, save, or copy it. Nothing leaves the machine.
+
+[![Validate](https://github.com/zluckyhou/longshot/actions/workflows/validate.yml/badge.svg)](https://github.com/zluckyhou/longshot/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-ff4f00.svg)](LICENSE)
+[![Privacy: local only](https://img.shields.io/badge/Privacy-local%20only-201515.svg)](PRIVACY.md)
+
+<a href="https://ko-fi.com/J3J3YMOKZ"><img src="docs/ko-fi-button.svg" height="44" alt="Support me on Ko-fi"></a>
+
+</div>
+
+![Longshot annotation editor](store/assets/shot-2-annotate.png)
 
 ## Install (unpacked)
 
@@ -147,3 +161,31 @@ Regenerate icons after changing the mark:
 ```bash
 node scripts/icon.mjs
 ```
+
+## Contributing
+
+Bug reports, capture edge cases, translations, and focused pull requests are
+welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before getting started and use
+the existing issue templates when reporting a problem.
+
+Please report suspected vulnerabilities privately according to
+[SECURITY.md](SECURITY.md), and follow the [Code of Conduct](CODE_OF_CONDUCT.md)
+in all project spaces.
+
+## Privacy
+
+Longshot has no server, account, analytics, or host permissions. Capture,
+stitching, editing, and export happen locally in the browser. Read the full
+policy in [English](PRIVACY.md) or [简体中文](PRIVACY.zh-CN.md).
+
+## Star history
+
+The chart is generated inside this repository by a scheduled GitHub Action. It
+uses the repository-scoped `GITHUB_TOKEN`; no personal access token or star data
+is sent to a third-party chart service.
+
+![GitHub star history for zluckyhou/longshot](docs/star-history.svg)
+
+## License
+
+Longshot is open source under the [MIT License](LICENSE).
