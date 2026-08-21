@@ -186,6 +186,10 @@ the repository-scoped `GITHUB_TOKEN`; no personal access token or star data is
 sent to a third-party chart service.
 
 <!-- star-history:start -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/star-history/star-history-dark.svg">
+  <img alt="Star history" src="docs/star-history/star-history-light.svg">
+</picture>
 <!-- star-history:end -->
 
 ## License
