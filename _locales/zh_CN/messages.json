@@ -1,0 +1,248 @@
+{
+  "extName": {
+    "message": "Longshot 滚动截图"
+  },
+  "extDescription": {
+    "message": "一键截取整页滚动长图，然后裁剪、标注、复制。全程本地处理，不上传。"
+  },
+  "actionTitle": {
+    "message": "Longshot — 截取整页"
+  },
+  "commandCapture": {
+    "message": "截取整页"
+  },
+  "tagline": {
+    "message": "整页长截图"
+  },
+  "capture": {
+    "message": "截取整页"
+  },
+  "capturing": {
+    "message": "截取中…"
+  },
+  "format": {
+    "message": "格式"
+  },
+  "quality": {
+    "message": "画质"
+  },
+  "waitPerScreen": {
+    "message": "每屏等待"
+  },
+  "waitPerScreenHint": {
+    "message": "每滚动一屏后，留给页面画完再截的时间。页面有动画或加载慢就调大。"
+  },
+  "optFixed": {
+    "message": "悬浮头部只出现一次"
+  },
+  "optFixedHint": {
+    "message": "避免固定导航栏盖满每一屏"
+  },
+  "optUnstick": {
+    "message": "解除吸顶元素"
+  },
+  "optUnstickHint": {
+    "message": "让它回到文档里它本来的位置"
+  },
+  "optPreload": {
+    "message": "预滚动加载图片"
+  },
+  "optPreloadHint": {
+    "message": "慢一些，但懒加载图不会空白"
+  },
+  "afterCapture": {
+    "message": "截完之后"
+  },
+  "afterEditor": {
+    "message": "打开编辑器"
+  },
+  "afterDownload": {
+    "message": "直接保存"
+  },
+  "stMeasuring": {
+    "message": "正在测量页面…"
+  },
+  "stCapturing": {
+    "message": "第 $1 屏 / 共 $2 屏",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      }
+    }
+  },
+  "stStitching": {
+    "message": "正在拼接…"
+  },
+  "stStarting": {
+    "message": "启动中…"
+  },
+  "stRunning": {
+    "message": "正在截取…"
+  },
+  "stReady": {
+    "message": "$1×$2 · $3 屏",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      },
+      "3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stSaved": {
+    "message": "已保存 · $1×$2 · $3",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      },
+      "3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stScaled": {
+    "message": "（已缩放以适配画布上限）"
+  },
+  "errBusy": {
+    "message": "已经有一个截图任务在跑了。"
+  },
+  "errNoTab": {
+    "message": "没有找到当前标签页。"
+  },
+  "errRestricted": {
+    "message": "Chrome 不允许在这个页面截图，换一个普通网页试试。"
+  },
+  "errFile": {
+    "message": "本地文件需要在 chrome://extensions 里打开「允许访问文件网址」。"
+  },
+  "errUnreadable": {
+    "message": "读不到这个标签页，刷新页面后重试。"
+  },
+  "errTabClosed": {
+    "message": "截图过程中标签页被关闭了。"
+  },
+  "errTabSwitched": {
+    "message": "切换标签页会中断截图，请让该标签页保持在前台。"
+  },
+  "errThrottled": {
+    "message": "Chrome 限流时间过长，请稍后重试。"
+  },
+  "errNoPage": {
+    "message": "页面没有响应，刷新后重试。"
+  },
+  "edTitle": {
+    "message": "Longshot 编辑器"
+  },
+  "toolSelect": {
+    "message": "选择"
+  },
+  "toolCrop": {
+    "message": "裁剪"
+  },
+  "toolArrow": {
+    "message": "箭头"
+  },
+  "toolRect": {
+    "message": "矩形"
+  },
+  "toolEllipse": {
+    "message": "椭圆"
+  },
+  "toolPen": {
+    "message": "画笔"
+  },
+  "toolText": {
+    "message": "文字"
+  },
+  "undo": {
+    "message": "撤销"
+  },
+  "redo": {
+    "message": "重做"
+  },
+  "copy": {
+    "message": "复制"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "copied": {
+    "message": "已复制到剪贴板"
+  },
+  "savedToast": {
+    "message": "已保存"
+  },
+  "copyFailed": {
+    "message": "复制失败，请改用保存"
+  },
+  "sizeLabel": {
+    "message": "导出尺寸"
+  },
+  "lockRatio": {
+    "message": "锁定比例"
+  },
+  "resetSize": {
+    "message": "还原"
+  },
+  "applyCrop": {
+    "message": "应用裁剪"
+  },
+  "cancelCrop": {
+    "message": "取消"
+  },
+  "cropHint": {
+    "message": "拖动框选要保留的区域"
+  },
+  "zoomFit": {
+    "message": "适应"
+  },
+  "strokeWidth": {
+    "message": "线宽"
+  },
+  "deleteShape": {
+    "message": "删除"
+  },
+  "loading": {
+    "message": "正在载入截图…"
+  },
+  "loadFailed": {
+    "message": "这张截图已经失效了，请重新截一次。"
+  },
+  "textPlaceholder": {
+    "message": "输入文字…"
+  },
+  "toolMagnifier": {
+    "message": "放大镜"
+  },
+  "magnifyPower": {
+    "message": "倍数"
+  },
+  "colorLabel": {
+    "message": "颜色"
+  },
+  "toolMask": {
+    "message": "遮挡"
+  },
+  "panIdle": {
+    "message": "平移"
+  },
+  "panActive": {
+    "message": "平移中"
+  },
+  "panHint": {
+    "message": "按住拖拽即可移动截图"
+  },
+  "panTitle": {
+    "message": "按住空格拖拽可平移画布"
+  }
+}

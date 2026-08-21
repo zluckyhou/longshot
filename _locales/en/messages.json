@@ -1,0 +1,248 @@
+{
+  "extName": {
+    "message": "Longshot — Scrolling Screenshot"
+  },
+  "extDescription": {
+    "message": "Capture a full-page scrolling screenshot of any webpage, then crop, annotate and copy it. Nothing is uploaded."
+  },
+  "actionTitle": {
+    "message": "Longshot — capture full page"
+  },
+  "commandCapture": {
+    "message": "Capture full page"
+  },
+  "tagline": {
+    "message": "full-page capture"
+  },
+  "capture": {
+    "message": "Capture full page"
+  },
+  "capturing": {
+    "message": "Capturing…"
+  },
+  "format": {
+    "message": "Format"
+  },
+  "quality": {
+    "message": "Quality"
+  },
+  "waitPerScreen": {
+    "message": "Wait per screen"
+  },
+  "waitPerScreenHint": {
+    "message": "Time given to each screen to finish drawing before it is captured. Raise it on animated or slow pages."
+  },
+  "optFixed": {
+    "message": "Fixed headers once"
+  },
+  "optFixedHint": {
+    "message": "Keeps floating bars off every screen"
+  },
+  "optUnstick": {
+    "message": "Unpin sticky elements"
+  },
+  "optUnstickHint": {
+    "message": "Renders them where they belong"
+  },
+  "optPreload": {
+    "message": "Pre-scroll lazy images"
+  },
+  "optPreloadHint": {
+    "message": "Slower, nothing renders blank"
+  },
+  "afterCapture": {
+    "message": "When done"
+  },
+  "afterEditor": {
+    "message": "Open editor"
+  },
+  "afterDownload": {
+    "message": "Save file"
+  },
+  "stMeasuring": {
+    "message": "Measuring the page…"
+  },
+  "stCapturing": {
+    "message": "Screen $1 of $2",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      }
+    }
+  },
+  "stStitching": {
+    "message": "Stitching…"
+  },
+  "stStarting": {
+    "message": "Starting…"
+  },
+  "stRunning": {
+    "message": "Capture in progress…"
+  },
+  "stReady": {
+    "message": "$1×$2 · $3 screens",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      },
+      "3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stSaved": {
+    "message": "Saved · $1×$2 · $3",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      },
+      "3": {
+        "content": "$3"
+      }
+    }
+  },
+  "stScaled": {
+    "message": " (scaled to fit canvas limits)"
+  },
+  "errBusy": {
+    "message": "A capture is already running."
+  },
+  "errNoTab": {
+    "message": "No active tab."
+  },
+  "errRestricted": {
+    "message": "Chrome blocks screenshots on this page. Try a normal website."
+  },
+  "errFile": {
+    "message": "Local files need \"Allow access to file URLs\" in chrome://extensions."
+  },
+  "errUnreadable": {
+    "message": "Cannot read this tab. Reload the page and try again."
+  },
+  "errTabClosed": {
+    "message": "The tab was closed during capture."
+  },
+  "errTabSwitched": {
+    "message": "Switching tabs cancels the capture. Keep the tab in front."
+  },
+  "errThrottled": {
+    "message": "Chrome throttled the capture API for too long. Try again."
+  },
+  "errNoPage": {
+    "message": "The page did not respond. Reload it and try again."
+  },
+  "edTitle": {
+    "message": "Longshot editor"
+  },
+  "toolSelect": {
+    "message": "Select"
+  },
+  "toolCrop": {
+    "message": "Crop"
+  },
+  "toolArrow": {
+    "message": "Arrow"
+  },
+  "toolRect": {
+    "message": "Rectangle"
+  },
+  "toolEllipse": {
+    "message": "Ellipse"
+  },
+  "toolPen": {
+    "message": "Draw"
+  },
+  "toolText": {
+    "message": "Text"
+  },
+  "undo": {
+    "message": "Undo"
+  },
+  "redo": {
+    "message": "Redo"
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "copied": {
+    "message": "Copied to clipboard"
+  },
+  "savedToast": {
+    "message": "Saved"
+  },
+  "copyFailed": {
+    "message": "Could not copy — save the file instead"
+  },
+  "sizeLabel": {
+    "message": "Export size"
+  },
+  "lockRatio": {
+    "message": "Lock aspect ratio"
+  },
+  "resetSize": {
+    "message": "Reset"
+  },
+  "applyCrop": {
+    "message": "Apply crop"
+  },
+  "cancelCrop": {
+    "message": "Cancel"
+  },
+  "cropHint": {
+    "message": "Drag to choose the area to keep"
+  },
+  "zoomFit": {
+    "message": "Fit"
+  },
+  "strokeWidth": {
+    "message": "Stroke"
+  },
+  "deleteShape": {
+    "message": "Delete"
+  },
+  "loading": {
+    "message": "Loading capture…"
+  },
+  "loadFailed": {
+    "message": "This capture is no longer available. Take a new one."
+  },
+  "textPlaceholder": {
+    "message": "Type…"
+  },
+  "toolMagnifier": {
+    "message": "Magnifier"
+  },
+  "magnifyPower": {
+    "message": "Power"
+  },
+  "colorLabel": {
+    "message": "Color"
+  },
+  "toolMask": {
+    "message": "Mask"
+  },
+  "panIdle": {
+    "message": "pan"
+  },
+  "panActive": {
+    "message": "panning"
+  },
+  "panHint": {
+    "message": "hold and drag to move the shot"
+  },
+  "panTitle": {
+    "message": "Hold Space and drag to pan the canvas"
+  }
+}

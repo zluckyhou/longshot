@@ -1,0 +1,15 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",  "title": "Popup — shipped", "x": 0,   "y": 0, "w": 360, "h": 560 },
+    { "file": "Icons.dc.html", "title": "Icon",            "x": 440, "y": 0, "w": 800, "h": 470 }
+  ],
+  "annotations": [
+    { "id": "whats-here", "x": -400, "y": 0, "w": 340,
+      "text": "This is what shipped, not a proposal.\n\nThe palette is now FixedShot's Zapier theme, taken value for value from its DesignTokens: #FF4F00 on #FFFEFB, coffee ink, radii 12/12/6. The two tools read as one family — same accent, same ink swatches in the editor, sibling icons." },
+    { "id": "popup-notes", "x": 0, "y": 580, "w": 360,
+      "text": "Three changes to the header row: the wordmark is title case and tight rather than tracked-out caps; the button carries the accent instead of a softer amber; and the shortcut is pinned to the button's right edge rather than sitting in the flex run, so it cannot crowd the label when the label changes length between languages." },
+    { "id": "icon-notes", "x": 440, "y": 490, "w": 800,
+      "text": "The earlier camera silhouette was a filled shape in a different idiom from FixedShot's stroked brackets. Sharing the drawing language — accent tile, cream strokes only, round caps, 24% corner radius — is what makes the two icons look like they come from the same place, more than sharing the colour does." }
+  ],
+  "launch": { "view": "canvas" }
+}

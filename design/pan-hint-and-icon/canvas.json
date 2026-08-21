@@ -1,0 +1,16 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",        "title": "Pan hint — 3 directions", "x": 0,    "y": 0, "w": 1180, "h": 1370 },
+    { "file": "Icon.dc.html",        "title": "Icon — 3 directions",     "x": 1270, "y": 0, "w": 900,  "h": 2140 },
+    { "file": "IconContext.dc.html", "title": "Icon at 16px, in place",  "x": 2260, "y": 0, "w": 760,  "h": 745 }
+  ],
+  "annotations": [
+    { "id": "brief", "x": -420, "y": 0, "w": 360,
+      "text": "Two questions, one canvas.\n\nPanning moved from Shift to Space so that Shift could go back to constraining shapes — but nothing in the editor says so, and a keystroke nobody knows about is the same as a keystroke that does not exist.\n\nShipped: B + C for the hint, and D as-is for the icon.\n\nSeparately: the store icon is a tray with a downward arrow in it, which is the download glyph. At 16px the shoulders drop out and only the arrow is left, so in a Chrome toolbar it sits two slots from the real download button and looks like a second one." },
+    { "id": "hint-pick", "x": 0, "y": 1400, "w": 1180,
+      "text": "Everything here is drawn on the shipped tokens — Space Grotesk / JetBrains Mono, #FF4F00 on #FFFEFB, radii 6/12, the existing .hint, kbd, .label and toast styles — so none of the three needs a new component. Flip the Space held switch above the artboard to see which of them react to the key: only C does, which is the whole of its argument." },
+    { "id": "icon-pick", "x": 2260, "y": 775, "w": 760,
+      "text": "The 16px row is the one to judge on. That is the size the icon actually lives at, and it is the size where the current mark fails hardest — a downward arrow next to a downward arrow.\n\nWhichever direction wins, the small size wants its own drawing rather than a shrunk copy of the large one; each candidate here already carries a simplified 16px form, the way the shipped set does.\n\nThe bottom block answers the follow-up question — what happens on a machine that has both tools installed." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="edTitle">Longshot</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body class="editor">
+  <header class="bar">
+    <div class="bar-left">
+      <img class="mark" src="../icons/icon32.png" alt="">
+      <div class="meta">
+        <span id="fileName" class="file-name"></span>
+        <span id="fileDims" class="file-dims"></span>
+      </div>
+    </div>
+
+    <div class="tools" id="tools" role="toolbar">
+      <button class="tool" data-tool="select" data-key="V" data-i18n-title="toolSelect" aria-pressed="true">
+        <svg viewBox="0 0 20 20"><path d="M5 3.2 15 9.6l-4.3 1.1-1.8 4.2z"/></svg><b>V</b>
+      </button>
+      <button class="tool" data-tool="crop" data-key="X" data-i18n-title="toolCrop">
+        <svg viewBox="0 0 20 20"><path d="M6 2v12h12M2 6h12v12"/></svg><b>X</b>
+      </button>
+      <span class="tool-sep"></span>
+      <button class="tool" data-tool="pen" data-key="P" data-i18n-title="toolPen">
+        <svg viewBox="0 0 20 20"><path d="M3 17c1.5-4 3-7.5 5.5-10.5S13 3 14.5 4.5 15 9 12 11s-5 1.5-4.5-.5S12 6 15 6.5s2.5 6 2 10.5"/></svg><b>P</b>
+      </button>
+      <button class="tool" data-tool="arrow" data-key="A" data-i18n-title="toolArrow">
+        <svg viewBox="0 0 20 20"><path d="M4 16 16 4M9 4h7v7"/></svg><b>A</b>
+      </button>
+      <button class="tool" data-tool="rect" data-key="R" data-i18n-title="toolRect">
+        <svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="11" rx="1.5"/></svg><b>R</b>
+      </button>
+      <button class="tool" data-tool="ellipse" data-key="O" data-i18n-title="toolEllipse">
+        <svg viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="7.2" ry="5.6"/></svg><b>O</b>
+      </button>
+      <button class="tool" data-tool="magnifier" data-key="M" data-i18n-title="toolMagnifier">
+        <svg viewBox="0 0 20 20"><circle cx="8.8" cy="8.8" r="5.3"/><path d="M12.8 12.8 17 17M6.6 8.8h4.4M8.8 6.6v4.4"/></svg><b>M</b>
+      </button>
+      <button class="tool" data-tool="mask" data-key="B" data-i18n-title="toolMask">
+        <svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="11" rx="1.5"/><path d="M3 8h14M3 12h14M7.5 4.5v11M12.5 4.5v11"/></svg><b>B</b>
+      </button>
+      <button class="tool" data-tool="text" data-key="T" data-i18n-title="toolText">
+        <svg viewBox="0 0 20 20"><path d="M4 5h12M10 5v11M7.5 16h5"/></svg><b>T</b>
+      </button>
+    </div>
+
+    <div class="bar-right">
+      <button class="ghost" id="undo" data-i18n-title="undo">
+        <svg viewBox="0 0 20 20"><path d="M7.5 5.5 3.5 9l4 3.5M3.5 9h8a5 5 0 0 1 0 10H8"/></svg>
+      </button>
+      <button class="ghost" id="redo" data-i18n-title="redo">
+        <svg viewBox="0 0 20 20"><path d="M12.5 5.5 16.5 9l-4 3.5M16.5 9h-8a5 5 0 0 0 0 10H12"/></svg>
+      </button>
+      <span class="tool-sep"></span>
+      <button class="ghost strong" id="copy"><span data-i18n="copy"></span><kbd>C</kbd></button>
+      <button class="solid" id="save"><span data-i18n="save"></span><kbd>⌘S</kbd></button>
+    </div>
+  </header>
+
+  <div class="sub" id="sub">
+    <div class="sub-group" id="styleGroup">
+      <span class="label" id="colorLabel"></span>
+      <div class="swatches" id="swatches"></div>
+      <span class="label" data-i18n="strokeWidth"></span>
+      <input id="stroke" type="range" min="1" max="14" step="1">
+      <output id="strokeOut" class="num"></output>
+    </div>
+
+    <div class="sub-group" id="zoomGroup" hidden>
+      <span class="label" data-i18n="magnifyPower"></span>
+      <input id="power" type="range" min="1.5" max="6" step="0.1">
+      <output id="powerOut" class="num"></output>
+    </div>
+
+    <div class="sub-group" id="cropGroup" hidden>
+      <span class="hint" data-i18n="cropHint"></span>
+      <button class="solid sm" id="applyCrop" data-i18n="applyCrop"></button>
+      <button class="ghost sm" id="cancelCrop" data-i18n="cancelCrop"></button>
+    </div>
+
+    <div class="sub-spacer"></div>
+
+    <div class="sub-group">
+      <span class="label" data-i18n="sizeLabel"></span>
+      <input class="num-input" id="outW" type="number" min="1" step="1">
+      <span class="times">×</span>
+      <input class="num-input" id="outH" type="number" min="1" step="1">
+      <button class="ghost sm" id="lockRatio" aria-pressed="true" data-i18n-title="lockRatio">
+        <svg viewBox="0 0 20 20"><path d="M6 9V6.5a4 4 0 0 1 8 0V9"/><rect x="4.5" y="9" width="11" height="8" rx="2"/></svg>
+      </button>
+      <button class="ghost sm" id="resetSize" data-i18n="resetSize"></button>
+    </div>
+
+    <div class="sub-group">
+      <div class="pan-chip" id="panChip" data-armed="false" data-i18n-title="panTitle">
+        <kbd>Space</kbd><span id="panWord"></span>
+      </div>
+      <span class="sub-sep"></span>
+      <button class="ghost sm" id="zoomOut">−</button>
+      <output id="zoomOutput" class="num"></output>
+      <button class="ghost sm" id="zoomIn">+</button>
+      <button class="ghost sm" id="zoomFit" data-i18n="zoomFit"></button>
+    </div>
+  </div>
+
+  <main class="stage" id="stage">
+    <canvas id="canvas"></canvas>
+    <textarea id="textInput" class="text-input" spellcheck="false" hidden></textarea>
+    <p id="placeholder" class="placeholder" data-i18n="loading"></p>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="editor.js" type="module"></script>
+</body>
+</html>

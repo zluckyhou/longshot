@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #fffefb; }
+    a { color: #ff4f00; } a:hover { color: #e04600; }
+  </style>
+</helmet>
+
+<div style="width: 360px; min-height: 560px; box-sizing: border-box; padding: 16px 18px 18px; background: #fffefb; color: #201515; font-family: 'Space Grotesk', system-ui, sans-serif; display: flex; flex-direction: column; gap: 15px">
+
+  <div style="display: flex; align-items: center; gap: 11px">
+    <svg width="30" height="30" viewBox="0 0 32 32">
+      <defs><linearGradient id="tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{{accent}}"/><stop offset="1" stop-color="#e04600"/></linearGradient></defs>
+      <rect width="32" height="32" rx="7.7" fill="url(#tile)"></rect>
+      <g fill="none" stroke="#fffefb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8.4 13.2V9.6a1.2 1.2 0 0 1 1.2-1.2h3.4"></path>
+        <path d="M23.6 13.2V9.6a1.2 1.2 0 0 0-1.2-1.2h-3.4"></path>
+        <path d="M16 9.8v11.4"></path>
+        <path d="M11.5 16.8 16 21.3l4.5-4.5"></path>
+      </g>
+    </svg>
+    <div style="display: flex; flex-direction: column; gap: 1px">
+      <div style="font-size: 18px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.1">Longshot</div>
+      <div style="font-size: 11.5px; color: #605d52">Full-page capture</div>
+    </div>
+  </div>
+
+  <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; height: 52px; padding: 0 64px; border-radius: 12px; background: {{accent}}; color: #fffefb; font-size: 15px; font-weight: 700; letter-spacing: -0.01em">
+    <svg width="19" height="19" viewBox="0 0 32 32" fill="none" stroke="#fffefb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8.4 13.2V9.6a1.2 1.2 0 0 1 1.2-1.2h3.4"></path>
+      <path d="M23.6 13.2V9.6a1.2 1.2 0 0 0-1.2-1.2h-3.4"></path>
+      <path d="M16 9.8v11.4"></path>
+      <path d="M11.5 16.8 16 21.3l4.5-4.5"></path>
+    </svg>
+    <span>Capture full page</span>
+    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; padding: 4px 8px; border-radius: 5px; background: rgba(255,254,251,0.2)">⌥⇧S</span>
+  </div>
+
+  <div style="height: 1px; background: #e7e2d6"></div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #605d52">Format</span>
+    <div style="display: flex; gap: 2px; padding: 2px; border-radius: 6px; background: #f8f4f0">
+      <span style="padding: 5px 12px; border-radius: 4px; background: #fffefb; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700">PNG</span>
+      <span style="padding: 5px 12px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #939084">JPG</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #605d52; flex: none">Wait per screen</span>
+      <div style="flex-grow: 1; height: 3px; border-radius: 2px; background: #c5c0b1; position: relative">
+        <div style="position: absolute; left: 22%; top: -5px; width: 13px; height: 13px; border-radius: 50%; background: {{accent}}"></div>
+      </div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #605d52; flex: none">220ms</span>
+    </div>
+    <p style="margin: 0; font-size: 10.5px; line-height: 1.45; color: #939084">Time given to each screen to finish drawing before it is captured. Raise it on animated or slow pages.</p>
+  </div>
+
+  <div style="height: 1px; background: #e7e2d6"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <sc-for list="{{toggles}}" as="row" hint-placeholder-count="3">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <span style="font-size: 12.5px; color: #201515">{{row.label}}</span>
+          <span style="font-size: 10.5px; color: #939084">{{row.hint}}</span>
+        </div>
+        <sc-if value="{{row.on}}" hint-placeholder-val="{{true}}">
+          <div style="flex: none; width: 34px; height: 19px; border-radius: 10px; background: {{accent}}; position: relative">
+            <div style="position: absolute; right: 2.5px; top: 2.5px; width: 14px; height: 14px; border-radius: 50%; background: #fff"></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{row.off}}" hint-placeholder-val="{{false}}">
+          <div style="flex: none; width: 34px; height: 19px; border-radius: 10px; background: #c5c0b1; position: relative">
+            <div style="position: absolute; left: 2.5px; top: 2.5px; width: 14px; height: 14px; border-radius: 50%; background: #fff"></div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="height: 1px; background: #e7e2d6"></div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #605d52">When done</span>
+    <div style="display: flex; flex-grow: 1; gap: 2px; padding: 2px; border-radius: 6px; background: #f8f4f0">
+      <span style="flex-grow: 1; text-align: center; padding: 5px 0; border-radius: 4px; background: #fffefb; font-size: 11.5px; font-weight: 700">Open editor</span>
+      <span style="flex-grow: 1; text-align: center; padding: 5px 0; border-radius: 4px; font-size: 11.5px; color: #939084">Save file</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#ff4f00","options":["#ff4f00","#146cff","#1a996e","#c43da6"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const rows = [
+      { label: 'Fixed headers once', hint: 'Keeps floating bars off every screen', on: true },
+      { label: 'Unpin sticky elements', hint: 'Renders them where they belong', on: true },
+      { label: 'Pre-scroll lazy images', hint: 'Slower, nothing renders blank', on: true },
+    ];
+    return {
+      accent: this.props.accent ?? '#ff4f00',
+      toggles: rows.map((r) => ({ ...r, off: !r.on })),
+    };
+  }
+}
+</script>
+</body>
+</html>
