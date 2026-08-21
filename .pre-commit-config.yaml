@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: longshot-validate
+        name: Validate Longshot
+        entry: bash scripts/validate.sh
+        language: system
+        pass_filenames: false

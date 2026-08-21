@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="50" viewBox="0 0 230 50" role="img" aria-labelledby="title description">
+  <title id="title">Support me on Ko-fi</title>
+  <desc id="description">A blue button linking to the Longshot maintainer's Ko-fi page.</desc>
+  <rect width="230" height="50" rx="12" fill="#72a4f2"/>
+  <path fill="#fff" d="M24 15h20v14a9 9 0 0 1-9 9h-2a9 9 0 0 1-9-9V15Zm20 3h3a6 6 0 0 1 0 12h-3v-4h3a2 2 0 0 0 0-4h-3v-4Z"/>
+  <path fill="#ff5e5b" d="M34 20.8c-3-3.5-8.2 1-4.5 4.6L34 30l4.5-4.6c3.7-3.6-1.5-8.1-4.5-4.6Z"/>
+  <text x="65" y="31" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="700">Support me on Ko-fi</text>
+</svg>
