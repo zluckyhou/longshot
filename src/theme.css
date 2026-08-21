@@ -1,0 +1,138 @@
+/* Shared tokens and bundled faces for the popup and the editor. */
+
+@font-face {
+  font-family: 'Longshot Sans';
+  src: url('../fonts/SpaceGrotesk.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Longshot Mono';
+  src: url('../fonts/JetBrainsMono.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  /* Ported from FixedShot's Zapier palette (Sources/FixedShot/DesignTokens.swift)
+     so the two tools read as one family. */
+  --bg: #fffefb;
+  --surface: #f8f4f0;
+  --surface-2: #efe9e1;
+  --line: #e7e2d6;
+  --line-strong: #c5c0b1;
+
+  --ink: #201515;
+  --ink-2: #605d52;
+  --ink-3: #939084;
+
+  --accent: #ff4f00;
+  --accent-hover: #ff6a24;
+  --accent-press: #e04600;
+  --accent-soft: #ffece4;
+  --accent-ink: #fffefb;
+
+  --ok: #2d7d4e;
+  --err: #c7340a;
+
+  --sans: 'Longshot Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --mono: 'Longshot Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* FixedShot's radii: card 12, cta 12, control 6. */
+  --r-sm: 6px;
+  --r-md: 6px;
+  --r-lg: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+.seg { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-sm); background: var(--surface); }
+.seg button {
+  border: 0;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.seg button[aria-pressed='true'] {
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgb(32 21 21 / 0.1);
+}
+
+.switch {
+  flex: none;
+  width: 34px;
+  height: 19px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--line-strong);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.14s ease;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  left: 2.5px;
+  top: 2.5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(32 21 21 / 0.22);
+  transition: transform 0.14s ease;
+}
+.switch[aria-checked='true'] { background: var(--accent); }
+.switch[aria-checked='true']::after { transform: translateX(15px); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 1px 2px rgb(32 21 21 / 0.3);
+}

@@ -1,45 +1,84 @@
-<div align="center">
+# Longshot
 
-<img src="https://raw.githubusercontent.com/zluckyhou/longshot/main/icon.png" width="88" alt="">
+Full-page scrolling screenshot for Chrome. One click, then crop, annotate and copy
+it — nothing leaves the machine.
 
-# Longshot — Scrolling Screenshot
+## Install (unpacked)
 
-**One click, the whole page.** A Chrome extension that captures a full-page
-scrolling screenshot, then lets you crop, annotate and copy it — without a
-single byte leaving your browser.
+1. Open `chrome://extensions`
+2. Turn on **Developer mode**
+3. **Load unpacked** → select this folder
+4. Pin Longshot, open any page, click it — or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>
 
-[Privacy policy](PRIVACY.md) · [隐私政策](PRIVACY.zh-CN.md) · [Report a bug](https://github.com/zluckyhou/longshot/issues/new?template=bug_report.yml) · [Request a feature](https://github.com/zluckyhou/longshot/issues/new?template=feature_request.yml)
+Requires Chrome 116+ (`chrome.runtime.getContexts`).
 
-</div>
+## Language
 
----
+The UI follows the browser's language: Simplified Chinese gets `zh_CN`, everything
+else falls back to English (`_locales/en` is `default_locale`). Nothing to
+configure.
 
-## What it does
+## How a capture works
 
-**Full-page capture.** Longshot scrolls the page for you, captures it screen by
-screen, and stitches the result into one tall image at the page's real
-resolution.
+```
+popup ──LS_START──▶ background (service worker)
+                      │
+                      ├── scripting.executeScript ──▶ content.js
+                      │      find what scrolls, unpin sticky, hide fixed, step it
+                      │
+                      ├── tabs.captureVisibleTab  ── one PNG per screen
+                      │
+                      ├── runtime.sendMessage ────▶ offscreen.js
+                      │      draw each segment at its true scroll offset
+                      │      canvas.toBlob → blob: URL
+                      │
+                      └── tabs.create ────────────▶ editor.html
+```
 
-**Handles the pages that usually break scrolling screenshots.** Fixed headers
-are kept off every screen but the first. Sticky elements are put back where
-they belong in the document. Lazy-loaded images are pre-scrolled so nothing
-arrives blank.
+Four details carry most of the quality:
 
-**A real editor, not a preview.** Crop to the part that matters; draw arrows,
-boxes, ellipses and freehand marks; add text; pixelate anything private; and
-drop in a magnifier loupe that enlarges a detail in place so it stays readable
-at a glance.
+- **The document is not always what scrolls.** SPAs, mail clients and dashboards
+  routinely pin `<body>` and scroll an inner container; `window.scrollTo` does
+  nothing there, which reads to the user as "it only captured what I could see".
+  Longshot uses the document when it genuinely scrolls, and otherwise drives the
+  scrollable element that dominates the viewport, cropping each screen to that
+  element's rectangle.
+- **Segments are drawn at their real scroll offset**, not appended end to end. The
+  final screen usually overlaps the previous one (the page can't scroll past its
+  bottom); painting by offset makes that overlap self-correcting instead of a bug.
+- **`position: sticky` is demoted to `static`** for the run, so a sticky nav appears
+  once where it belongs in the flow rather than riding down the whole image.
+- **`position: fixed` chrome is kept for screen 1 and hidden afterwards**, so a
+  floating header shows up once instead of being stamped on every screen.
 
-**Export the way you want it.** Set the output size, save as PNG or JPG, or
-copy the finished image straight to the clipboard.
+Stitching happens in an offscreen document because a service worker has no canvas
+and can't mint `blob:` URLs. Segments are drawn as they arrive and freed
+immediately, so memory stays flat regardless of page length.
 
-## Shortcuts
+## Settings
 
-| | |
-|---|---|
-| <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | Capture the full page |
+| Setting | Default | Notes |
+|---|---|---|
+| Format | PNG | JPEG exposes a quality slider |
+| Wait per screen | 220 ms | Time each screen gets to finish drawing before it is captured. Raise it on animated or slow pages, lower it to go faster. |
+| Fixed headers once | on | Off = fixed chrome on every screen |
+| Unpin sticky elements | on | Off = sticky bars repeat |
+| Pre-scroll lazy images | on | Slower, but nothing renders blank |
+| When done | Open editor | Or save the file straight to `Downloads/Longshot/` |
 
-In the editor:
+## Colours
+
+The palette is FixedShot's Zapier theme, ported value for value from
+`FixedShot/Sources/FixedShot/DesignTokens.swift` — accent `#FF4F00` on canvas
+`#FFFEFB`, ink `#201515`, surface `#F8F4F0`, radii 12/12/6. The editor's ink
+swatches are FixedShot's eight presets in the same order, so an annotation drawn
+in one tool matches one drawn in the other, and the two app icons are siblings:
+accent tile, cream stroke-only glyph, round caps.
+
+## The editor
+
+Captures open in a tab instead of landing in Downloads. Nothing is written to disk
+until you ask for it.
 
 | Key | Tool | | Key | Action |
 |---|---|---|---|---|
@@ -53,18 +92,58 @@ In the editor:
 | `B` | Mask (pixelate) | | `Shift`+draw | Constrain to a square/circle |
 | `T` | Text | | `⌘`+wheel | Zoom |
 
-## Privacy
+**Magnifier** draws a loupe into the image: the pixels under it are redrawn
+enlarged so a detail stays readable. It is an annotation, not a preview — drag it,
+resize it, change its power, and it exports with everything else.
 
-Nothing is uploaded. There is no server, no account and no analytics — capture,
-stitching, editing and export all happen inside your browser, and the only
-thing Longshot stores is your own settings. It asks for no host permissions and
-installs no persistent content script: it touches a page only on the tab you
-invoke it on, and only for that capture.
+**Export size** rescales the output without touching the annotations; the lock
+keeps the aspect ratio. **Crop** narrows what is exported and resets the size.
 
-Full policy: **[English](PRIVACY.md)** · **[简体中文](PRIVACY.zh-CN.md)**
+## Permissions
 
-## Support
+| Permission | Why |
+|---|---|
+| `activeTab` | Read + capture only the tab you explicitly invoke on. No host permissions, so Longshot cannot see any page you don't point it at. |
+| `scripting` | Inject the measuring/scrolling script into that tab |
+| `downloads` | Write the finished image, when you ask it to |
+| `storage` | Remember your settings |
+| `offscreen` | Host the stitching canvas |
+| `clipboardWrite` | The editor's copy command |
 
-Something broken, or a page that Longshot captures badly?
-**[Open an issue](https://github.com/zluckyhou/longshot/issues/new/choose)** —
-include the URL if you can, that is usually the whole diagnosis.
+## Known limits
+
+- **Chrome throttles `captureVisibleTab`** to roughly two calls per second. Longshot
+  captures at full speed and backs off only when Chrome refuses, but a very long
+  page still takes a while.
+- **The tab must stay in front.** `captureVisibleTab` reads whatever is visible, so
+  switching tabs aborts the capture rather than producing a corrupted image.
+- **One scroller.** The dominant scrollable region is captured; a page with two
+  independently scrolling panes captures only the larger one.
+- **Horizontal scroll isn't stitched** — output is the page at its current width.
+- **Very tall pages get scaled down** to fit Chrome's canvas limits (32767 px per
+  side, 2^28 px total). The popup says so when it happens.
+- `chrome://`, the Web Store, and `file://` (without the file-access opt-in) are
+  blocked by Chrome, not by Longshot.
+
+## Layout
+
+```
+manifest.json
+_locales/{en,zh_CN}/messages.json
+src/
+  background.js   run orchestration, capture, editor handoff, download
+  content.js      scroller detection, measurement, sticky/fixed handling
+  offscreen.js    canvas stitching, blob export
+  editor.*        the annotation editor
+  popup.*         the capture panel
+  theme.css       shared tokens + bundled faces
+  i18n.js
+fonts/            Space Grotesk + JetBrains Mono, latin, OFL
+icons/            generated by scripts/icon.mjs
+```
+
+Regenerate icons after changing the mark:
+
+```bash
+node scripts/icon.mjs
+```

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="extName">Longshot</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <img class="mark" src="../icons/icon48.png" alt="">
+    <div class="wordmark">
+      <div class="name">Longshot</div>
+      <div class="tagline" data-i18n="tagline"></div>
+    </div>
+  </header>
+
+  <button id="capture" class="primary">
+    <svg viewBox="0 0 32 32" width="19" height="19" aria-hidden="true" fill="none"
+         stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8.4 13.2V9.6a1.2 1.2 0 0 1 1.2-1.2h3.4"/>
+      <path d="M23.6 13.2V9.6a1.2 1.2 0 0 0-1.2-1.2h-3.4"/>
+      <path d="M16 9.8v11.4"/>
+      <path d="M11.5 16.8 16 21.3l4.5-4.5"/>
+    </svg>
+    <span class="btn-label" data-i18n="capture"></span>
+    <kbd>⌥⇧S</kbd>
+  </button>
+
+  <div id="status" class="status" hidden>
+    <div class="ticks" id="ticks"></div>
+    <p id="statusText" class="status-text"></p>
+  </div>
+
+  <hr class="rule">
+
+  <div class="group">
+    <div class="row">
+      <span class="label" data-i18n="format"></span>
+      <div class="seg" id="format" role="group">
+        <button type="button" data-value="png" aria-pressed="true">PNG</button>
+        <button type="button" data-value="jpeg" aria-pressed="false">JPG</button>
+      </div>
+    </div>
+
+    <div class="row" id="qualityRow">
+      <span class="label" data-i18n="quality"></span>
+      <input id="quality" type="range" min="0.5" max="1" step="0.02">
+      <output id="qualityOut" class="num"></output>
+    </div>
+
+    <div class="stack">
+      <div class="row">
+        <span class="label" data-i18n="waitPerScreen"></span>
+        <input id="settleMs" type="range" min="60" max="800" step="20">
+        <output id="settleOut" class="num"></output>
+      </div>
+      <p class="hint" data-i18n="waitPerScreenHint"></p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="group" id="toggles">
+    <div class="opt">
+      <div class="opt-text">
+        <span class="opt-label" data-i18n="optFixed"></span>
+        <span class="hint" data-i18n="optFixedHint"></span>
+      </div>
+      <button class="switch" id="hideFixed" role="switch" aria-checked="true" data-i18n-aria="optFixed"></button>
+    </div>
+    <div class="opt">
+      <div class="opt-text">
+        <span class="opt-label" data-i18n="optUnstick"></span>
+        <span class="hint" data-i18n="optUnstickHint"></span>
+      </div>
+      <button class="switch" id="unstick" role="switch" aria-checked="true" data-i18n-aria="optUnstick"></button>
+    </div>
+    <div class="opt">
+      <div class="opt-text">
+        <span class="opt-label" data-i18n="optPreload"></span>
+        <span class="hint" data-i18n="optPreloadHint"></span>
+      </div>
+      <button class="switch" id="preload" role="switch" aria-checked="true" data-i18n-aria="optPreload"></button>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="row">
+    <span class="label" data-i18n="afterCapture"></span>
+    <div class="seg wide" id="afterCapture" role="group">
+      <button type="button" data-value="editor" aria-pressed="true" data-i18n="afterEditor"></button>
+      <button type="button" data-value="download" aria-pressed="false" data-i18n="afterDownload"></button>
+    </div>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

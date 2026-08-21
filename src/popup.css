@@ -1,0 +1,95 @@
+body {
+  width: 360px;
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.head { display: flex; align-items: center; gap: 11px; }
+.mark { width: 30px; height: 30px; border-radius: 8px; }
+.wordmark { display: flex; flex-direction: column; gap: 1px; }
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.tagline {
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
+.primary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 52px;
+  padding: 0 64px;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+.primary:hover:not(:disabled) { background: var(--accent-hover); }
+.primary:active:not(:disabled) { background: var(--accent-press); }
+.primary:disabled { opacity: 0.5; cursor: default; }
+
+/* Pinned to the right rather than sitting in the flex run, so the shortcut
+   never crowds the label as the label's length changes between languages. */
+.primary kbd {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: rgb(255 254 251 / 0.2);
+}
+
+.status { display: flex; flex-direction: column; gap: 8px; }
+.status[hidden] { display: none; }
+.ticks { display: flex; gap: 3px; }
+.ticks i { flex-grow: 1; height: 4px; border-radius: 2px; background: var(--surface-2); }
+.ticks i.on { background: var(--accent); }
+.status-text { margin: 0; font-family: var(--mono); font-size: 10.5px; color: var(--ink-2); }
+.status-text.ok { color: var(--ok); }
+.status-text.err { color: var(--err); font-family: var(--sans); font-size: 12px; }
+
+.group { display: flex; flex-direction: column; gap: 14px; }
+.stack { display: flex; flex-direction: column; gap: 6px; }
+
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.row input[type='range'] {
+  flex-grow: 1;
+  height: 3px;
+  accent-color: var(--accent);
+}
+.num {
+  flex: none;
+  width: 46px;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-2);
+}
+.row[hidden] { display: none; }
+.seg.wide { flex-grow: 1; }
+.seg.wide button { flex-grow: 1; font-family: var(--sans); font-size: 11.5px; }
+
+.opt { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.opt-text { display: flex; flex-direction: column; gap: 2px; }
+.opt-label { font-size: 12.5px; color: var(--ink); }
+.hint { margin: 0; font-size: 10.5px; line-height: 1.45; color: var(--ink-3); }
