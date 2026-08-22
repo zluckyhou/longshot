@@ -10,6 +10,7 @@ then crop, annotate, mask, magnify, save, or copy it. Nothing leaves the machine
 [![Validate](https://github.com/zluckyhou/longshot/actions/workflows/validate.yml/badge.svg)](https://github.com/zluckyhou/longshot/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-ff4f00.svg)](LICENSE)
 [![Privacy: local only](https://img.shields.io/badge/Privacy-local%20only-201515.svg)](PRIVACY.md)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-4285F4?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/longshot-%E2%80%94-scrolling-scre/kkpnodmddhpdleianjpjdjommjaikgbg)
 
 <a href="https://ko-fi.com/J3J3YMOKZ"><img src="docs/ko-fi-button.svg" height="44" alt="Support me on Ko-fi"></a>
 
@@ -17,7 +18,11 @@ then crop, annotate, mask, magnify, save, or copy it. Nothing leaves the machine
 
 ![Longshot annotation editor](store/assets/shot-2-annotate.png)
 
-## Install (unpacked)
+## Install
+
+[Install Longshot from the Chrome Web Store](https://chromewebstore.google.com/detail/longshot-%E2%80%94-scrolling-scre/kkpnodmddhpdleianjpjdjommjaikgbg).
+
+### Development install (unpacked)
 
 1. Open `chrome://extensions`
 2. Turn on **Developer mode**
