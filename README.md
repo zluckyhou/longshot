@@ -102,21 +102,63 @@ until you ask for it.
 | Key | Tool | | Key | Action |
 |---|---|---|---|---|
 | `V` | Select / move / resize | | `C` or `⌘C` | Copy image to clipboard |
-| `X` | Crop | | `⌘S` | Save PNG |
+| `K` (`X` also works) | Crop | | `⌘S` | Save PNG |
 | `P` | Draw | | `⌘Z` / `⌘⇧Z` | Undo / redo |
 | `A` | Arrow | | `Delete` | Delete selection |
-| `R` | Rectangle | | `Esc` | Deselect, then back to Select |
-| `O` | Ellipse | | `⌘0` | Fit to window |
-| `M` | Magnifier | | `Space`+drag | Pan the canvas |
-| `B` | Mask (pixelate) | | `Shift`+draw | Constrain to a square/circle |
+| `R` | Rectangle | | `Esc` | Deselect and return to Select |
+| `O` | Ellipse | | `⌘0` / `⌘1` | Fit whole shot / fit width |
+| `M` | Magnifier | | wheel, `Space`+drag | Scroll / pan the canvas |
+| `B` | Mask (opaque / pixelate) | | `Shift`+draw | Constrain to a square/circle |
 | `T` | Text | | `⌘`+wheel | Zoom |
+| `L` | Line | | `Shift`+line/arrow | Constrain to 45° |
+| `H` | Highlight | | `⌘D` | Duplicate selection |
+| `N` | Number (auto increment) | | Arrow keys / `Shift`+arrows | Move selection 1 / 10 screen pixels |
 
-**Magnifier** draws a loupe into the image: the pixels under it are redrawn
-enlarged so a detail stays readable. It is an annotation, not a preview — drag it,
-resize it, change its power, and it exports with everything else.
+A capture opens whole. When it is taller than the window that makes it a thin
+strip, so a **zoom-in** pill sits in the middle of it: one click takes the shot
+to the window's width, top first, to read down with the wheel; the pill then
+moves to the corner as **fit all** to go back. The button at the right of the
+sub-bar does the same, and every control shows its shortcut.
+
+**Magnifier** redraws original-resolution pixels and earlier annotations directly
+at the lens resolution, instead of enlarging an already downsampled preview.
+Existing masks remain masked inside the lens; other lenses are not recursively
+magnified. Drawing the initial circle sets its area at the chosen power. After
+creation, dragging its edge keeps the sampled area fixed: a larger lens also
+increases magnification. The slider independently adjusts power from 1.1× to
+12×. Pixels are interpolated when shrinking and kept sharp when enlarging;
+zooming beyond the source resolution cannot create missing detail. Preview and
+export use the same rendering path.
+
+**Text** follows FixedShot's editing flow: click to type, Enter to finish,
+Shift+Enter for a new line, Escape to cancel. Chinese IME confirmation stays in
+the input. Double-click existing text to edit it again; drag the left or right
+handle to change the wrapping width. Font size is independent of stroke width,
+with bold and three plate styles (solid, outline, plain). Light ink gets a dark
+plate automatically. New text starts at a readable 22 screen pixels even when a
+long capture is zoomed out. The size control shows the current on-screen size;
+zooming changes the preview, not the text's exported size.
+
+**Selection** follows FixedShot: finishing a drawing leaves it unselected and
+keeps the current drawing tool. Click an existing annotation to select, move or
+resize it without switching tools first.
+
+**Properties** follow the selected annotation. Lines, arrows, rectangles and
+ellipses support solid or dashed strokes; highlights use FixedShot's dedicated
+four-color palette. All ink tools also support custom colors. Number markers
+increment automatically. Masks default to an opaque fill, with adjustable
+pixelation as an alternative. Selected annotations can be duplicated, deleted,
+or nudged with the keyboard.
+
+**Undo / redo** covers text entry and re-editing, shape geometry, property changes,
+and output dimensions. A slider drag is one step; selecting an annotation does
+not erase redo, and undoing an annotation keeps the current zoom and pan.
 
 **Export size** rescales the output without touching the annotations; the lock
-keeps the aspect ratio. **Crop** narrows what is exported and resets the size.
+keeps the aspect ratio. Unlocking it scales both dimensions independently.
+**Crop** narrows what is exported and resets the size. Copy and save finish any
+pending text before rendering. Annotation preview and PNG export use the same
+layout and drawing code.
 
 ## Permissions
 
@@ -167,15 +209,17 @@ Regenerate icons after changing the mark:
 node scripts/icon.mjs
 ```
 
-## Contributing
+## Chrome Web Store package
 
-Bug reports, capture edge cases, translations, and focused pull requests are
-welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before getting started and use
-the existing issue templates when reporting a problem.
+Current upload version: **0.4.0**. Build from the workspace source:
 
-Please report suspected vulnerabilities privately according to
-[SECURITY.md](SECURITY.md), and follow the [Code of Conduct](CODE_OF_CONDUCT.md)
-in all project spaces.
+```bash
+node scripts/build-store.mjs
+```
+
+The package is written to `store/longshot-0.4.0.zip`, with `manifest.json` at the
+archive root and only runtime assets included. Store text and release notes are
+in `store/LISTING.md`. Creating this package does not upload or publish it.
 
 ## Privacy
 

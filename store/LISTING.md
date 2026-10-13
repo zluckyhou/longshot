@@ -1,9 +1,9 @@
-# Chrome Web Store listing — Longshot 0.2.0
+# Chrome Web Store listing — Longshot 0.4.0
 
 Everything needed for the submission, ready to paste. Field names match the
 developer console. Character counts are given where the console enforces a cap.
 
-- Package: `store/longshot-0.2.0.zip` (80 KB)
+- Package: `store/longshot-0.4.0.zip` (96,814 bytes; about 95 KiB)
 - Images: `store/assets/`
 - Privacy policy: https://github.com/zluckyhou/longshot/blob/main/PRIVACY.md
 
@@ -11,12 +11,22 @@ developer console. Character counts are given where the console enforces a cap.
 
 ## 1. Package
 
-Upload `store/longshot-0.2.0.zip`. Contents: `manifest.json`, `src/`, `icons/`,
+Upload `store/longshot-0.4.0.zip`. Contents: `manifest.json`, `src/`, `icons/`,
 `_locales/`, `fonts/` — no source maps, no `node_modules`, no design files.
 
-Manifest V3, version `0.2.0`, `default_locale: en`, minimum Chrome 116.
+Manifest V3, version `0.4.0`, `default_locale: en`, minimum Chrome 116.
 
 ---
+
+## 0.4.0 release notes
+
+- Fix text input focus, Chinese IME handling, re-editing, wrapping and undo/redo.
+- Align annotation selection and common editing controls with FixedShot; add
+  line, highlight, numbered markers, dashed strokes and opaque masking.
+- Render magnifiers from original-resolution pixels and link resizing with zoom.
+- Fix crop boundaries, middle-button panning and independently scaled PNG export.
+
+Rebuild the upload package with `node scripts/build-store.mjs` from the project root.
 
 ## 2. Store listing — English
 
@@ -51,15 +61,16 @@ WHAT IT DOES
   belong in the document, and lazy-loaded images are pre-scrolled so nothing
   arrives blank.
 • A real editor, not a preview. Crop to the part that matters, draw arrows,
-  boxes, ellipses and freehand marks, add text, pixelate anything private, and
-  drop in a magnifier loupe that enlarges a detail in place so it stays
-  readable at a glance.
-• Export the way you want it. Set the output size, save as PNG or JPG, or copy
-  the finished image straight to the clipboard and paste it into Slack, a doc
-  or an issue.
-• Keyboard-first. Alt+Shift+S captures. In the editor: V select, X crop,
-  P draw, A arrow, R rectangle, O ellipse, M magnifier, B pixelate, T text.
-  Shift constrains to a square or a circle, Space + drag pans, Cmd+Z undoes.
+  lines, boxes, ellipses and freehand marks, highlight text, add numbered
+  markers, edit multiline text with bold and background styles, and cover
+  private content with opaque or pixelated masks. Magnifiers draw from original
+  pixels and link resizing with zoom for sharper details.
+• Export the way you want it. Set the output size, save the edited image as
+  PNG, or copy it to the clipboard. Direct capture downloads also support JPEG.
+• Keyboard-first. Alt+Shift+S captures. In the editor: V select, K crop (X
+  also works), P draw, L line, A arrow, R rectangle, O ellipse, H highlight,
+  N number, M magnifier, B mask, T text. Enter finishes text, Shift+Enter adds
+  a line, Escape cancels. Space + drag pans, Cmd+Z undoes.
 
 PRIVACY
 
@@ -105,14 +116,14 @@ Longshot 把一整个网页拍成一张图——不是你看得见的那一屏�
   原始分辨率。
 • 专门处理那些会让滚动截图翻车的页面。固定导航栏只保留在第一屏，吸顶元素
   会被放回它在文档里本来的位置，懒加载图片会被预先滚动加载，不会拍出空白。
-• 是真正的编辑器，不是预览。裁掉不要的部分，画箭头、方框、椭圆和自由笔迹，
-  加文字，把隐私内容打码，还能放一个放大镜到图上——它会就地放大细节，让关键
-  信息一眼可读。
-• 按你的需要导出。可设置输出尺寸，存成 PNG 或 JPG，也可以直接复制到剪贴板，
-  粘进飞书、文档或 issue 里。
-• 键盘优先。Alt+Shift+S 截图。编辑器里：V 选择、X 裁剪、P 画笔、A 箭头、
-  R 矩形、O 椭圆、M 放大镜、B 打码、T 文字。按住 Shift 约束为正方形或正圆，
-  空格 + 拖拽平移画布，Cmd+Z 撤销。
+• 完整编辑器。支持直线、箭头、方框、椭圆、自由画线、高亮、序号，多行文字可调
+  字号、粗体和底板；隐私内容可实底遮挡或像素化。放大镜使用原图像素，创建后
+  调整大小会同步改变倍率，让细节更清楚。标注画完默认不选中，点击后即可调整。
+• 按你的需要导出。可设置输出尺寸，将编辑后的图片保存为 PNG 或复制到剪贴板；
+  截图后直接下载也支持 JPEG。
+• 键盘优先。Alt+Shift+S 截图。编辑器里：V 选择、K 裁剪（兼容 X）、P 画笔、
+  L 直线、A 箭头、R 矩形、O 椭圆、H 高亮、N 序号、M 放大镜、B 遮挡、T 文字。
+  文字回车完成、Shift+回车换行、Esc 取消；空格 + 拖拽平移，Cmd+Z 撤销。
 
 隐私
 

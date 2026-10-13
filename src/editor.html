@@ -20,12 +20,15 @@
       <button class="tool" data-tool="select" data-key="V" data-i18n-title="toolSelect" aria-pressed="true">
         <svg viewBox="0 0 20 20"><path d="M5 3.2 15 9.6l-4.3 1.1-1.8 4.2z"/></svg><b>V</b>
       </button>
-      <button class="tool" data-tool="crop" data-key="X" data-i18n-title="toolCrop">
-        <svg viewBox="0 0 20 20"><path d="M6 2v12h12M2 6h12v12"/></svg><b>X</b>
+      <button class="tool" data-tool="crop" data-key="K" data-i18n-title="toolCrop">
+        <svg viewBox="0 0 20 20"><path d="M6 2v12h12M2 6h12v12"/></svg><b>K</b>
       </button>
       <span class="tool-sep"></span>
       <button class="tool" data-tool="pen" data-key="P" data-i18n-title="toolPen">
         <svg viewBox="0 0 20 20"><path d="M3 17c1.5-4 3-7.5 5.5-10.5S13 3 14.5 4.5 15 9 12 11s-5 1.5-4.5-.5S12 6 15 6.5s2.5 6 2 10.5"/></svg><b>P</b>
+      </button>
+      <button class="tool" data-tool="line" data-key="L" data-i18n-title="toolLine">
+        <svg viewBox="0 0 20 20"><path d="M4 16 16 4"/></svg><b>L</b>
       </button>
       <button class="tool" data-tool="arrow" data-key="A" data-i18n-title="toolArrow">
         <svg viewBox="0 0 20 20"><path d="M4 16 16 4M9 4h7v7"/></svg><b>A</b>
@@ -35,6 +38,12 @@
       </button>
       <button class="tool" data-tool="ellipse" data-key="O" data-i18n-title="toolEllipse">
         <svg viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="7.2" ry="5.6"/></svg><b>O</b>
+      </button>
+      <button class="tool" data-tool="highlight" data-key="H" data-i18n-title="toolHighlight">
+        <svg viewBox="0 0 20 20"><path d="m5 11 7-7 4 4-7 7H5zM3 17h14"/></svg><b>H</b>
+      </button>
+      <button class="tool" data-tool="number" data-key="N" data-i18n-title="toolNumber">
+        <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="m8 8 2-2v8M8 14h4"/></svg><b>N</b>
       </button>
       <button class="tool" data-tool="magnifier" data-key="M" data-i18n-title="toolMagnifier">
         <svg viewBox="0 0 20 20"><circle cx="8.8" cy="8.8" r="5.3"/><path d="M12.8 12.8 17 17M6.6 8.8h4.4M8.8 6.6v4.4"/></svg><b>M</b>
@@ -64,14 +73,45 @@
     <div class="sub-group" id="styleGroup">
       <span class="label" id="colorLabel"></span>
       <div class="swatches" id="swatches"></div>
-      <span class="label" data-i18n="strokeWidth"></span>
+      <input id="customColor" type="color" data-i18n-title="customColor" data-i18n-aria="customColor">
+    </div>
+    <div class="sub-group" id="strokeGroup">
+      <label class="label" for="stroke" data-i18n="strokeWidth"></label>
       <input id="stroke" type="range" min="1" max="14" step="1">
       <output id="strokeOut" class="num"></output>
     </div>
 
+    <div class="sub-group" id="lineGroup" hidden>
+      <select id="lineStyle" data-i18n-aria="lineStyle">
+        <option value="solid" data-i18n="lineSolid"></option>
+        <option value="dashed" data-i18n="lineDashed"></option>
+      </select>
+    </div>
+    <div class="sub-group" id="textGroup" hidden>
+      <label class="label" for="fontSize" data-i18n="fontSize"></label>
+      <input class="num-input" id="fontSize" type="number" min="12" max="96" step="1">
+      <button class="ghost sm" id="textBold" aria-pressed="false" data-i18n-title="textBold" data-i18n-aria="textBold"><strong>B</strong></button>
+      <select id="textPlate" data-i18n-aria="textPlate">
+        <option value="solid" data-i18n="plateSolid"></option>
+        <option value="outline" data-i18n="plateOutline"></option>
+        <option value="plain" data-i18n="platePlain"></option>
+      </select>
+    </div>
+    <div class="sub-group" id="maskGroup" hidden>
+      <select id="maskStyle" data-i18n-aria="maskStyle">
+        <option value="opaque" data-i18n="maskOpaque"></option>
+        <option value="pixelate" data-i18n="maskPixelate"></option>
+      </select>
+      <label class="label" for="maskStrength" data-i18n="maskStrength"></label>
+      <input id="maskStrength" type="range" min="4" max="40" step="1">
+    </div>
+    <div class="sub-group" id="selectionGroup" hidden>
+      <button class="ghost sm" id="duplicateShape" data-i18n="duplicateShape"></button>
+      <button class="ghost sm" id="deleteShape" data-i18n="deleteShape"></button>
+    </div>
     <div class="sub-group" id="zoomGroup" hidden>
-      <span class="label" data-i18n="magnifyPower"></span>
-      <input id="power" type="range" min="1.5" max="6" step="0.1">
+      <label class="label" for="power" data-i18n="magnifyPower"></label>
+      <input id="power" data-i18n-title="magnifierHint" type="range" min="1.1" max="12" step="0.1">
       <output id="powerOut" class="num"></output>
     </div>
 
@@ -99,16 +139,21 @@
         <kbd>Space</kbd><span id="panWord"></span>
       </div>
       <span class="sub-sep"></span>
-      <button class="ghost sm" id="zoomOut">−</button>
+      <button class="ghost sm" id="zoomOut" data-i18n-title="zoomOutTitle">−</button>
       <output id="zoomOutput" class="num"></output>
-      <button class="ghost sm" id="zoomIn">+</button>
-      <button class="ghost sm" id="zoomFit" data-i18n="zoomFit"></button>
+      <button class="ghost sm" id="zoomIn" data-i18n-title="zoomInTitle">+</button>
+      <button class="ghost sm" id="zoomFit"><span id="zoomFitWord"></span><kbd id="zoomFitKey"></kbd></button>
     </div>
   </div>
 
   <main class="stage" id="stage">
     <canvas id="canvas"></canvas>
+    <button class="lens" id="lens" data-state="in" hidden>
+      <svg viewBox="0 0 20 20"><circle cx="8.8" cy="8.8" r="5.3"/><path d="M12.8 12.8 17 17"/><path d="M6.6 8.8h4.4"/><path class="lens-v" d="M8.8 6.6v4.4"/></svg>
+      <span id="lensWord"></span><kbd id="lensKey"></kbd>
+    </button>
     <textarea id="textInput" class="text-input" spellcheck="false" hidden></textarea>
+    <div id="textHint" class="text-hint" hidden data-i18n="textHint"></div>
     <p id="placeholder" class="placeholder" data-i18n="loading"></p>
   </main>
 

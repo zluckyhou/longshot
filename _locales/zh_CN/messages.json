@@ -203,9 +203,6 @@
   "cropHint": {
     "message": "拖动框选要保留的区域"
   },
-  "zoomFit": {
-    "message": "适应"
-  },
   "strokeWidth": {
     "message": "线宽"
   },
@@ -244,5 +241,89 @@
   },
   "panTitle": {
     "message": "按住空格拖拽可平移画布"
+  },
+  "zoomFitWidth": {
+    "message": "适应宽度"
+  },
+  "zoomFitAll": {
+    "message": "整图"
+  },
+  "zoomFitWidthTitle": {
+    "message": "放大到窗口宽度（⌘1）"
+  },
+  "zoomFitAllTitle": {
+    "message": "缩小到完整显示（⌘0）"
+  },
+  "lensIn": {
+    "message": "放大查看"
+  },
+  "zoomInTitle": {
+    "message": "放大（⌘ + 滚轮）"
+  },
+  "zoomOutTitle": {
+    "message": "缩小（⌘ + 滚轮）"
+  },
+  "toolLine": {
+    "message": "直线 · Shift 约束水平、垂直或 45°"
+  },
+  "toolHighlight": {
+    "message": "高亮"
+  },
+  "toolNumber": {
+    "message": "序号 · 点击自动递增"
+  },
+  "customColor": {
+    "message": "自定义颜色"
+  },
+  "lineStyle": {
+    "message": "线条样式"
+  },
+  "lineSolid": {
+    "message": "实线"
+  },
+  "lineDashed": {
+    "message": "虚线"
+  },
+  "fontSize": {
+    "message": "字号"
+  },
+  "textBold": {
+    "message": "粗体"
+  },
+  "textPlate": {
+    "message": "文字底板"
+  },
+  "plateSolid": {
+    "message": "实底"
+  },
+  "plateOutline": {
+    "message": "描边"
+  },
+  "platePlain": {
+    "message": "纯文字"
+  },
+  "maskStyle": {
+    "message": "遮挡方式"
+  },
+  "maskOpaque": {
+    "message": "实底"
+  },
+  "maskPixelate": {
+    "message": "像素化"
+  },
+  "maskStrength": {
+    "message": "强度"
+  },
+  "duplicateShape": {
+    "message": "复制标注"
+  },
+  "textHint": {
+    "message": "↵ 完成   ·   Shift+↵ 换行   ·   Esc 取消"
+  },
+  "saveFailed": {
+    "message": "保存失败，请减小导出尺寸后重试"
+  },
+  "magnifierHint": {
+    "message": "拖动边缘同步调整大小和倍率；倍率滑块可单独调整放大程度"
   }
 }

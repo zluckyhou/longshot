@@ -203,9 +203,6 @@
   "cropHint": {
     "message": "Drag to choose the area to keep"
   },
-  "zoomFit": {
-    "message": "Fit"
-  },
   "strokeWidth": {
     "message": "Stroke"
   },
@@ -244,5 +241,89 @@
   },
   "panTitle": {
     "message": "Hold Space and drag to pan the canvas"
+  },
+  "zoomFitWidth": {
+    "message": "Fit width"
+  },
+  "zoomFitAll": {
+    "message": "Fit all"
+  },
+  "zoomFitWidthTitle": {
+    "message": "Zoom to the window width (⌘1)"
+  },
+  "zoomFitAllTitle": {
+    "message": "Shrink to show the whole shot (⌘0)"
+  },
+  "lensIn": {
+    "message": "Zoom in"
+  },
+  "zoomInTitle": {
+    "message": "Zoom in (⌘ + wheel)"
+  },
+  "zoomOutTitle": {
+    "message": "Zoom out (⌘ + wheel)"
+  },
+  "toolLine": {
+    "message": "Line · Shift constrains to 45°"
+  },
+  "toolHighlight": {
+    "message": "Highlight"
+  },
+  "toolNumber": {
+    "message": "Number · Click to increment"
+  },
+  "customColor": {
+    "message": "Custom color"
+  },
+  "lineStyle": {
+    "message": "Line style"
+  },
+  "lineSolid": {
+    "message": "Solid"
+  },
+  "lineDashed": {
+    "message": "Dashed"
+  },
+  "fontSize": {
+    "message": "Font size"
+  },
+  "textBold": {
+    "message": "Bold"
+  },
+  "textPlate": {
+    "message": "Text plate"
+  },
+  "plateSolid": {
+    "message": "Solid plate"
+  },
+  "plateOutline": {
+    "message": "Outline"
+  },
+  "platePlain": {
+    "message": "Plain text"
+  },
+  "maskStyle": {
+    "message": "Mask style"
+  },
+  "maskOpaque": {
+    "message": "Opaque"
+  },
+  "maskPixelate": {
+    "message": "Pixelate"
+  },
+  "maskStrength": {
+    "message": "Strength"
+  },
+  "duplicateShape": {
+    "message": "Duplicate"
+  },
+  "textHint": {
+    "message": "↵ Done   ·   Shift+↵ New line   ·   Esc Cancel"
+  },
+  "saveFailed": {
+    "message": "Save failed. Reduce the export size and try again."
+  },
+  "magnifierHint": {
+    "message": "Drag the edge to resize and zoom together; use the slider to adjust magnification independently"
   }
 }
